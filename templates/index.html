@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Admission Prediction</h1>
+    <h4>gre-gre_score gpa-gpa_in_clg SES-SES refers to socioeconomic status: 1 - low, 2 - medium, 3 - high. Gendermale-(0, 1) = 0 -> Female, 1 -> Male Race – 1, 2, and 3 represent Hispanic, Asian, and African-American Rank-The variable rank takes on the values 1 through 4. Institutions with a rank of 1 have the highest prestige, while those with a rank of 4 have the lowest.</h4>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="gre_score" placeholder="GRE score" required="required" />
+        <input type="text" name="gpa" placeholder="gpa" required="required" />
+		<input type="text" name="ses" placeholder="SES" required="required" />
+        <input type="text" name="gender" placeholder="Gender" required="required" />
+        <input type="text" name="race" placeholder="Race" required="required" />
+        <input type="text" name="rank" placeholder="Institutions rank" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
