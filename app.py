@@ -7,7 +7,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index1.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -22,7 +22,7 @@ def predict():
         output="SELECTED"
     else:
         output="NOT SELECTED"
-    return render_template('index.html',prediction_text='The status of the admission: {}'.format(output))
+    return render_template('index1.html',prediction_text='The status of the admission: {}'.format(output))
 
 
 if __name__ == "__main__":
